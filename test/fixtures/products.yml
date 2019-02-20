@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  opening_stock: 
+  purchases: 
+  total_stock: 
+  total_sold: 
+  buying_cost: 9.99
+  total_buying_cost: 9.99
+  selling_cost: 9.99
+  margin: 9.99
+  total_margin: 9.99
+  total_sales: 9.99
+  closing_stock: 
+
+two:
+  opening_stock: 
+  purchases: 
+  total_stock: 
+  total_sold: 
+  buying_cost: 9.99
+  total_buying_cost: 9.99
+  selling_cost: 9.99
+  margin: 9.99
+  total_margin: 9.99
+  total_sales: 9.99
+  closing_stock: 

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Opening stock</th>
+      <th>Purchases</th>
+      <th>Total stock</th>
+      <th>Total sold</th>
+      <th>Buying cost</th>
+      <th>Total buying cost</th>
+      <th>Selling cost</th>
+      <th>Margin</th>
+      <th>Total margin</th>
+      <th>Total sales</th>
+      <th>Closing stock</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.opening_stock %></td>
+        <td><%= product.purchases %></td>
+        <td><%= product.total_stock %></td>
+        <td><%= product.total_sold %></td>
+        <td><%= product.buying_cost %></td>
+        <td><%= product.total_buying_cost %></td>
+        <td><%= product.selling_cost %></td>
+        <td><%= product.margin %></td>
+        <td><%= product.total_margin %></td>
+        <td><%= product.total_sales %></td>
+        <td><%= product.closing_stock %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

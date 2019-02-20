@@ -1,0 +1,77 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :opening_stock %>
+    <%= form.text_field :opening_stock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchases %>
+    <%= form.text_field :purchases %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_stock %>
+    <%= form.text_field :total_stock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_sold %>
+    <%= form.text_field :total_sold %>
+  </div>
+
+  <div class="field">
+    <%= form.label :buying_cost %>
+    <%= form.text_field :buying_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_buying_cost %>
+    <%= form.text_field :total_buying_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :selling_cost %>
+    <%= form.text_field :selling_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :margin %>
+    <%= form.text_field :margin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_margin %>
+    <%= form.text_field :total_margin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_sales %>
+    <%= form.text_field :total_sales %>
+  </div>
+
+  <div class="field">
+    <%= form.label :closing_stock %>
+    <%= form.text_field :closing_stock %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

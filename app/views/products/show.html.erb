@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Opening stock:</strong>
+  <%= @product.opening_stock %>
+</p>
+
+<p>
+  <strong>Purchases:</strong>
+  <%= @product.purchases %>
+</p>
+
+<p>
+  <strong>Total stock:</strong>
+  <%= @product.total_stock %>
+</p>
+
+<p>
+  <strong>Total sold:</strong>
+  <%= @product.total_sold %>
+</p>
+
+<p>
+  <strong>Buying cost:</strong>
+  <%= @product.buying_cost %>
+</p>
+
+<p>
+  <strong>Total buying cost:</strong>
+  <%= @product.total_buying_cost %>
+</p>
+
+<p>
+  <strong>Selling cost:</strong>
+  <%= @product.selling_cost %>
+</p>
+
+<p>
+  <strong>Margin:</strong>
+  <%= @product.margin %>
+</p>
+
+<p>
+  <strong>Total margin:</strong>
+  <%= @product.total_margin %>
+</p>
+
+<p>
+  <strong>Total sales:</strong>
+  <%= @product.total_sales %>
+</p>
+
+<p>
+  <strong>Closing stock:</strong>
+  <%= @product.closing_stock %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
