@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ @import "materialize/components/color-variables";
+ $primary-color: color("blue", "lighten-2") !default;
+ $secondary-color: color("yellow", "base") !default;
+ @import 'materialize';
+
+ body {
+   margin-left: 20px;
+   margin-right: 20px;
+ }
+
+.card {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
