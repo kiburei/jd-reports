@@ -5,21 +5,20 @@
   <div class="row">
     <div class="card col s4 green">
       <h3>Total Sales</h3>
-      <%= number_to_currency(rand(1000..10000), :unit => "KES ") %>
+      <%= number_to_currency(@total_sales, :unit => "KES ") %>
     </div>
     <div class="card col s4 blue">
       <h3>Today's Sales</h3>
-      <%= number_to_currency(rand(1000..10000), :unit => "KES ") %>
+      <%= number_to_currency(@day_sales, :unit => "KES ") %>
     </div>
     <div class="card col s4 purple">
       <h3>Day's Margin</h3>
-      <%= number_to_currency(rand(1000..10000), :unit => "KES ") %>
+      <%= number_to_currency(@day_margins, :unit => "KES ") %>
     </div>
   </div>
 </div>
 
-<%= link_to 'Open Day', root_url, class: 'btn green lighten-3' %>
-<%= link_to 'Close Day', root_url, class: 'btn red lighten-3' %>
+<%= link_to 'Close Day', close_day_path, class: 'btn red lighten-3' %>
 
     <h1>Report</h1>
 
@@ -44,6 +43,28 @@
 
       <tbody>
         <% @products.each do |product| %>
+        <!-- Modal Structure -->
+        <div id="modal<%= product.id %>" class="modal">
+          <div class="modal-content">
+            <h4><%= product.name %></h4>
+            <p><%= number_to_currency(product.selling_cost, :unit => "KES ") %></p>
+            <p>In Stock: <%= product.closing_stock %></p>
+            <div class="form">
+              <%= form_tag sell_path(product) do %>
+                <div class="field">
+                  <%= number_field_tag :quantity, nil, :placeholder => "Enter Quantity" %>
+                </div>
+                <div class="field">
+                  <%= submit_tag 'Post', class: 'btn blue lighten-3' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+
           <tr>
             <td><%= product.name %></td>
             <td><%= product.opening_stock %></td>
@@ -57,6 +78,7 @@
             <td><%= number_to_currency(product.total_margin, :unit => "KES ") %></td>
             <td><%= number_to_currency(product.total_sales, :unit => "KES ") %></td>
             <td><%= product.closing_stock %></td>
+            <td> <button class="btn blue lighten-3" onclick="sell(<%= product.id %>)">Sell</button> </td>
             <td><%= link_to 'Reload', reload_path(product), class: 'btn green lighten-3' %></td>
             <td><%= link_to 'edit', edit_product_path(product), class: 'btn lighten-3' %></td>
             <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn red lighten-3' %></td>

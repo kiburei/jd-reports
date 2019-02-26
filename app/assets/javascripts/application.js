@@ -18,3 +18,7 @@
 //= require jquery3
 //= require jquery-ui/widgets/autocomplete
 //= require autocomplete-rails
+
+function sell(id) {
+  document.getElementById('modal' + id).style.display = 'block';
+}
