@@ -22,3 +22,13 @@
 function sell(id) {
   document.getElementById('modal' + id).style.display = 'block';
 }
+
+function history() {
+  document.getElementById('history').style.display = 'block';
+  document.getElementById('present').style.display = 'none';
+}
+
+function present() {
+  document.getElementById('present').style.display = 'block';
+  document.getElementById('history').style.display = 'none';
+}

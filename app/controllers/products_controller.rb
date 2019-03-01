@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-    @total_sales = @products.sum(:total_sales)
+    @reports = DailyReport.all
+    @total_sales = DailyReport.all.sum(:total_sales)
     @day_sales = @products.sum(:total_sales)
     @day_margins = @products.sum(:total_margin)
   end
@@ -79,6 +80,8 @@ class ProductsController < ApplicationController
   end
 
   def close_day
+    # Create gen report
+    DailyReport.create!(report_params)
     # Save items with closong stock, total sales ets and export to pdf or excel
     Product.all.each do |prod|
       prod.update(opening_stock: prod.closing_stock, purchases: 0, total_stock: prod.closing_stock, total_sold: 0, total_margin: 0, total_sales: 0, closing_stock: 0)
@@ -113,5 +116,9 @@ class ProductsController < ApplicationController
 
     def sell_params
       params.permit(:quantity)
+    end
+
+    def report_params
+      params.permit(:report_date, :total_sales, :day_sales, :day_margin)
     end
 end

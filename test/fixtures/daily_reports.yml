@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  report_date: 2019-02-26
+  total_sales: 9.99
+  day_sales: 9.99
+  day_margin: 9.99
+
+two:
+  report_date: 2019-02-26
+  total_sales: 9.99
+  day_sales: 9.99
+  day_margin: 9.99
