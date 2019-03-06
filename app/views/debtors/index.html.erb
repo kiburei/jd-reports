@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Shop', root_url, class: 'btn-large blue lighten-3' %>
+<h1>Debtors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Items</th>
+      <th>Debt</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @debtors.each do |debtor| %>
+      <tr>
+        <td><%= debtor.f_name %></td>
+        <td><%= debtor.l_name %></td>
+        <td><%= debtor.items %></td>
+        <td><%= debtor.debt %></td>
+        <td><%= link_to 'Update', edit_debtor_path(debtor), class: 'btn blue lighten-3' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Debtor', new_debtor_path, class: 'btn blue lighten-3v' %>

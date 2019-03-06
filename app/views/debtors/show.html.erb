@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>F name:</strong>
+  <%= @debtor.f_name %>
+</p>
+
+<p>
+  <strong>L name:</strong>
+  <%= @debtor.l_name %>
+</p>
+
+<p>
+  <strong>Debt:</strong>
+  <%= @debtor.debt %>
+</p>
+
+<%= link_to 'Edit', edit_debtor_path(@debtor) %> |
+<%= link_to 'Back', debtors_path %>

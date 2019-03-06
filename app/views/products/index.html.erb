@@ -4,7 +4,7 @@
 <div class="dashboard">
   <div class="row">
     <div class="card col s4 green">
-      <h3>Total Sales</h3>
+      <h3>Month Sales</h3>
       <%= number_to_currency(@total_sales, :unit => "KES ") %>
     </div>
     <div class="card col s4 blue">
@@ -25,6 +25,7 @@
   <%= hidden_field_tag :day_margin, @day_margins %>
   <%= submit_tag 'Close Day', class: 'btn red lighten-3' %>
 <% end %>
+<%= link_to 'Debtors', debtors_path, class: 'btn-large blue lighten-3', style: 'float: right' %>
 
     <div id="present">
       <h1>Today</h1>

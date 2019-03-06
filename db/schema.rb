@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_171006) do
+ActiveRecord::Schema.define(version: 2019_03_06_063331) do
 
   create_table "daily_reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "report_date"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2019_02_26_171006) do
     t.decimal "day_margin", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "debtors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "f_name"
+    t.string "l_name"
+    t.decimal "debt", precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "items"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
