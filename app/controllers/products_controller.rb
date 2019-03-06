@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @reports = DailyReport.all
-    @total_sales = DailyReport.all.sum(:total_sales)
+    @total_sales = DailyReport.where(updated_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).sum(:total_sales) + @products.where(updated_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month).sum(:total_sales)
     @day_sales = @products.sum(:total_sales)
     @day_margins = @products.sum(:total_margin)
   end
